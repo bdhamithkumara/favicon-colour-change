@@ -1,10 +1,11 @@
 "use client"
-import Image from "next/image";
 import { useTheme } from "@/context/theme-context"
 
 export default function Home() {
 
   const { currentPrimaryColor, currentTheme } = useTheme()
+
+  
 
     const getPrimaryColorClass = (color: string) => {
       const colorMap: Record<string, string> = {
