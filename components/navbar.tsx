@@ -29,7 +29,9 @@ export default function Navbar() {
                 <SwatchBook />
               </button>
               {isThemeSelectorOpen && (
-                <ThemeSelector onClose={() => setIsThemeSelectorOpen(false)} />
+                <div className="absolute right-0 mt-2 z-50">
+                  <ThemeSelector onClose={() => setIsThemeSelectorOpen(false)} />
+                </div>
               )}
             </div>
           </div>

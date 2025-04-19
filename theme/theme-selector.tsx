@@ -98,11 +98,10 @@ export default function ThemeSelector({ onClose }: ThemeSelectorProps) {
   }
 
   return (
-<div className="fixed inset-0 z-50 bg-black/40 flex justify-end sm:items-start sm:justify-center">
-    <div
-      ref={selectorRef}
-      className="bg-white h-full w-full max-w-sm sm:max-w-[350px] p-6 overflow-y-auto shadow-lg border-l border-gray-200 animate-slide-in-right"
-    >
+<div
+  ref={selectorRef}
+  className="theme-selector bg-white rounded-lg shadow-lg p-6 w-[350px] border border-gray-200 max-h-[90vh] overflow-y-auto"
+>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Theme Settings</h2>
         <button
@@ -199,7 +198,6 @@ export default function ThemeSelector({ onClose }: ThemeSelectorProps) {
           </button>
         </div>
       </div>
-    </div>
     </div>
   )
 }
