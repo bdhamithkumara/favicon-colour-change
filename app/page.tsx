@@ -1,103 +1,100 @@
+"use client"
 import Image from "next/image";
+import { useTheme } from "@/context/theme-context"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const { currentPrimaryColor, currentTheme } = useTheme()
+
+    const getPrimaryColorClass = (color: string) => {
+      const colorMap: Record<string, string> = {
+        black: "text-black",
+        red: "text-red-500",
+        orange: "text-orange-500",
+        amber: "text-amber-500",
+        yellow: "text-yellow-500",
+        lime: "text-lime-500",
+        green: "text-green-500",
+        emerald: "text-emerald-500",
+        teal: "text-teal-500",
+        cyan: "text-cyan-500",
+        sky: "text-sky-500",
+        blue: "text-blue-500",
+        indigo: "text-indigo-500",
+        violet: "text-violet-500",
+        purple: "text-purple-500",
+        fuchsia: "text-fuchsia-500",
+        pink: "text-pink-500",
+        rose: "text-rose-500",
+      }
+  
+      return colorMap[color] || "text-gray-500"
+    }
+  
+    const getPrimaryBgClass = (color: string) => {
+      const colorMap: Record<string, string> = {
+        black: "bg-black",
+        red: "bg-red-500",
+        orange: "bg-orange-500",
+        amber: "bg-amber-500",
+        yellow: "bg-yellow-500",
+        lime: "bg-lime-500",
+        green: "bg-green-500",
+        emerald: "bg-emerald-500",
+        teal: "bg-teal-500",
+        cyan: "bg-cyan-500",
+        sky: "bg-sky-500",
+        blue: "bg-blue-500",
+        indigo: "bg-indigo-500",
+        violet: "bg-violet-500",
+        purple: "bg-purple-500",
+        fuchsia: "bg-fuchsia-500",
+        pink: "bg-pink-500",
+        rose: "bg-rose-500",
+      }
+  
+      return colorMap[color] || "bg-gray-500"
+    }
+  
+
+    const primaryTextClass = getPrimaryColorClass(currentPrimaryColor)
+    const primaryBgClass = getPrimaryBgClass(currentPrimaryColor)
+
+
+  return (
+<div className="min-h-screen flex items-center justify-center ">
+  <div className={`pt-24 w-full ${currentTheme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="text-center">
+        <h1 className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+          <span className="block">The Intuitive</span>
+          <span className={`block ${primaryTextClass}`}>UI Library</span>
+        </h1>
+        <p className="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+          Create beautiful, responsive & accessible web apps quickly with our customizable components built with Tailwind CSS.
+        </p>
+        <div className="mt-10 max-w-md mx-auto sm:flex sm:justify-center md:mt-12">
+          <div className={`custom-border-radius shadow`}>
+            <a
+              href="#"
+              className={`w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium custom-border-radius text-white hover:text-black ${primaryBgClass} hover:opacity-90 md:py-4 md:text-lg md:px-10`}
+            >
+              Get started
+            </a>
+          </div>
+          <div className={`mt-3 custom-border-radius shadow sm:mt-0 sm:ml-3`}>
+            <a
+              href="#"
+              className={`w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium custom-border-radius ${currentTheme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-700"} hover:bg-gray-50 md:py-4 md:text-lg md:px-10 hover:text-black`}
+            >
+              Documentation
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
+  </div>
+</div>
+
   );
 }
