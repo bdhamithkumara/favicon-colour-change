@@ -2,6 +2,8 @@
 
 A customizable theme settings panel built with **React 19**, **Next.js 15**, and **Tailwind CSS v4**. Easily switch between light, dark, and system themes, change primary and neutral colors, and adjust border radius — all in a sleek, responsive UI.
 
+<!-- GitAds-Verify: NKRTODNW28HHHBHZEYGEI35NPYX6UDCF -->
+
 ## ✨ Features
 
 - 🌓 Light / Dark / System theme toggle
