@@ -4,6 +4,9 @@ A customizable theme settings panel built with **React 19**, **Next.js 15**, and
 
 <!-- GitAds-Verify: NKRTODNW28HHHBHZEYGEI35NPYX6UDCF -->
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=bdhamithkumara/favicon-colour-change@github)](https://gitads.dev/v1/ad-track?source=bdhamithkumara/favicon-colour-change@github)
+
 ## ✨ Features
 
 - 🌓 Light / Dark / System theme toggle
